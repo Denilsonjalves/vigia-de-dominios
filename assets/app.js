@@ -59,16 +59,18 @@
     });
   }
 
-  function enviarGoogleForms(cfg, dados) {
-    return new Promise((resolve) => {
-      const nome = "pz_iframe_" + Date.now();
-      const iframe = el("iframe", { name: nome, hidden: "hidden", title: "envio" });
-      const f = el("form", { action: cfg.formEndpoint, method: "POST", target: nome, hidden: "hidden" });
-      Object.entries(dados).forEach(([k, v]) => { if (cfg.fields[k]) f.append(el("input", { type: "hidden", name: cfg.fields[k], value: v })); });
-      iframe.addEventListener("load", () => { setTimeout(() => { iframe.remove(); f.remove(); }, 500); resolve(true); });
-      document.body.append(iframe, f);
-      f.submit();
-    });
+  /* POST no-cors (corpo urlencoded = sem preflight). A promessa só resolve quando a resposta do Google chega e rejeita em
+     falha de rede/tempo esgotado. A resposta é opaca: a compatibilidade das opções é garantida por configurar_form.py. */
+  async function enviarGoogleForms(cfg, dados) {
+    const corpo = new URLSearchParams();
+    Object.entries(dados).forEach(([k, v]) => { if (cfg.fields[k]) corpo.append(cfg.fields[k], v); });
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 20000);
+    try {
+      await fetch(cfg.formEndpoint, { method: "POST", mode: "no-cors", body: corpo, keepalive: true, signal: ctrl.signal });
+    } finally {
+      clearTimeout(t);
+    }
   }
 
   function initLista() {
