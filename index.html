@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vigia de Domínios — monitoramento de domínios e SSL para agências</title>
+  <meta name="description" content="Nenhum domínio ou certificado SSL dos seus clientes vence sem aviso. Diagnóstico gratuito e lista de espera para agências digitais.">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="config.js" defer></script>
+  <script src="assets/diagnostico.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="wrap topo-in">
+      <a class="marca" href="#"><span class="marca-icone" aria-hidden="true">◉</span> Vigia de Domínios <small>(nome provisório)</small></a>
+      <nav aria-label="Seções">
+        <a href="#diagnostico">Diagnóstico grátis</a>
+        <a href="#agencias">Para agências</a>
+        <a href="#preco">Preço</a>
+        <a class="btn btn-sm" href="#lista">Lista de espera</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-in">
+        <p class="selo">Pré-lançamento · feito para agências digitais brasileiras</p>
+        <h1>Nenhum domínio ou certificado SSL dos seus clientes vai vencer sem aviso.</h1>
+        <p class="sub">Monitoramos o vencimento de domínios (inclusive .br), certificados SSL e a segurança do e-mail de todos os
+          sites que a sua agência gerencia — e você recebe o alerta antes do cliente perceber o problema.</p>
+        <div class="acoes">
+          <a class="btn" href="#diagnostico">Fazer diagnóstico grátis</a>
+          <a class="btn btn-sec" href="#lista">Entrar na lista de espera</a>
+        </div>
+        <ul class="pontos">
+          <li>Sem instalação: basta a lista de domínios</li>
+          <li>Alertas por e-mail ou Telegram</li>
+          <li>Relatório mensal pronto para enviar ao cliente</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="diagnostico" class="secao">
+      <div class="wrap">
+        <h2>Diagnóstico gratuito de domínio</h2>
+        <p class="lead">Verifique agora o vencimento do domínio, do certificado SSL e a proteção do e-mail. A consulta roda no seu
+          navegador, em fontes públicas oficiais — não armazenamos o domínio consultado.</p>
+        <form id="form-diag" class="diag-form" autocomplete="off" novalidate>
+          <label for="dominio" class="sr">Domínio</label>
+          <input id="dominio" name="dominio" type="text" inputmode="url" placeholder="suaagencia.com.br" required maxlength="253">
+          <button class="btn" type="submit" id="btn-diag">Diagnosticar</button>
+        </form>
+        <p id="diag-status" class="status" role="status" aria-live="polite"></p>
+        <div id="diag-resultado" class="resultado" hidden></div>
+        <p class="nota">Fontes: Google Public DNS / Cloudflare (DNS), registros oficiais RDAP (inclusive Registro.br) e logs públicos de
+          Certificate Transparency (crt.sh e Cert Spotter). O diagnóstico é informativo e pode não refletir mudanças muito recentes.</p>
+      </div>
+    </section>
+
+    <section class="secao alt">
+      <div class="wrap grid3">
+        <div class="card"><h3>Site fora do ar</h3><p>Domínio vencido derruba o site e o e-mail do cliente de uma vez — e a culpa costuma
+          cair na agência.</p></div>
+        <div class="card"><h3>“Site não seguro”</h3><p>Certificado SSL vencido faz o navegador alertar o visitante e espanta vendas e
+          contatos.</p></div>
+        <div class="card"><h3>E-mail falsificado</h3><p>Sem SPF e DMARC, golpistas enviam e-mails em nome do cliente e as mensagens
+          legítimas caem no spam.</p></div>
+      </div>
+    </section>
+
+    <section id="agencias" class="secao">
+      <div class="wrap">
+        <h2>Feito para quem cuida de muitos domínios</h2>
+        <div class="grid2">
+          <ol class="passos">
+            <li><strong>Cole a lista de domínios</strong> dos seus clientes (ou importe uma planilha).</li>
+            <li><strong>Nós verificamos todos os dias</strong> domínio, SSL, DNS e segurança do e-mail.</li>
+            <li><strong>Você é avisado com antecedência</strong> (domínio: 30, 14 e 7 dias; SSL: 14 e 7 dias) por e-mail ou Telegram.</li>
+            <li><strong>Todo mês, um relatório</strong> por cliente, pronto para enviar — mostra o seu cuidado com a conta.</li>
+          </ol>
+          <ul class="lista-check">
+            <li>Suporte a domínios .br (Registro.br) e internacionais</li>
+            <li>Alerta de mudança inesperada de DNS</li>
+            <li>Postura de e-mail: SPF, DMARC e MTA-STS</li>
+            <li>Painel único com todos os clientes</li>
+            <li>Pagamento por Pix, sem fidelidade</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="preco" class="secao alt">
+      <div class="wrap">
+        <h2>Preço previsto</h2>
+        <div class="grid2 precos">
+          <div class="card plano destaque">
+            <h3>Agência</h3>
+            <p class="valor">R$ 39<span>/mês</span></p>
+            <ul><li>Até 50 domínios</li><li>Alertas por e-mail e Telegram</li><li>Relatório mensal por cliente</li><li>Cancele quando quiser</li></ul>
+          </div>
+          <div class="card plano">
+            <h3>Agência+</h3>
+            <p class="valor">Sob consulta</p>
+            <ul><li>Mais de 50 domínios</li><li>Relatório com a marca da agência</li><li>Prioridade no suporte</li></ul>
+          </div>
+        </div>
+        <p class="nota">Pré-lançamento: nenhuma cobrança é feita agora. Valores e condições finais serão informados antes de qualquer
+          contratação.</p>
+      </div>
+    </section>
+
+    <section id="lista" class="secao">
+      <div class="wrap estreito">
+        <h2>Entre na lista de espera</h2>
+        <p class="lead">Quem entrar agora ajuda a definir o produto e terá condição de lançamento.</p>
+        <form id="form-lista" class="form-lista" novalidate>
+          <div class="campo"><label for="nome">Nome</label><input id="nome" name="nome" required maxlength="120" autocomplete="name"></div>
+          <div class="campo"><label for="email">E-mail profissional</label><input id="email" name="email" type="email" required maxlength="160" autocomplete="email"></div>
+          <div class="campo"><label for="agencia">Agência</label><input id="agencia" name="agencia" required maxlength="160" autocomplete="organization"></div>
+          <div class="campo"><label for="site">Site da agência</label><input id="site" name="site" maxlength="200" placeholder="suaagencia.com.br"></div>
+          <div class="campo"><label for="cargo">Cargo</label><input id="cargo" name="cargo" maxlength="80" autocomplete="organization-title"></div>
+          <div class="campo"><label for="n_dominios">Quantos domínios de clientes vocês gerenciam?</label>
+            <select id="n_dominios" name="n_dominios" required><option value="">Selecione</option><option>1 a 10</option><option>11 a 50</option><option>51 a 200</option><option>Mais de 200</option></select></div>
+          <div class="campo"><label for="dor">Qual problema já aconteceu com vocês?</label>
+            <select id="dor" name="dor" required><option value="">Selecione</option><option>Domínio de cliente venceu</option><option>SSL venceu / site “não seguro”</option>
+              <option>E-mail do cliente caiu no spam ou foi falsificado</option><option>Ainda não aconteceu, mas preocupa</option><option>Outro</option></select></div>
+          <div class="campo"><label for="pagaria">R$ 39/mês por até 50 domínios resolveria para vocês?</label>
+            <select id="pagaria" name="pagaria" required><option value="">Selecione</option><option>Sim, assinaria no lançamento</option><option>Talvez — depende de recursos</option>
+              <option>Talvez — o preço precisa ser menor</option><option>Não</option></select></div>
+          <div class="campo campo-full"><label for="comentario">O que faria você assinar? (opcional)</label><textarea id="comentario" name="comentario" rows="3" maxlength="800"></textarea></div>
+          <div class="campo campo-full consent"><input id="consent" name="consent" type="checkbox" required>
+            <label for="consent">Concordo em receber contato sobre o lançamento e com o tratamento dos meus dados conforme a
+              <a href="privacidade.html" target="_blank" rel="noopener">política de privacidade</a>. Posso pedir a exclusão a qualquer momento.</label></div>
+          <input type="hidden" name="origem" id="origem"><input type="hidden" name="diag_dominio" id="diag_dominio">
+          <button class="btn" type="submit" id="btn-lista">Quero entrar na lista</button>
+          <p id="lista-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="secao alt">
+      <div class="wrap estreito faq">
+        <h2>Perguntas frequentes</h2>
+        <details><summary>Já existe para comprar?</summary><p>Ainda não. Estamos em pré-lançamento, validando o produto com agências. Ninguém é cobrado agora.</p></details>
+        <details><summary>Preciso instalar algo no site dos clientes?</summary><p>Não. Usamos apenas informações públicas: registros de DNS, o registro oficial do domínio (RDAP) e certificados publicados.</p></details>
+        <details><summary>Vocês acessam dados dos meus clientes?</summary><p>Não. Só consultamos dados técnicos públicos dos domínios. Dados pessoais de titulares de domínio não são coletados nem exibidos.</p></details>
+        <details><summary>Funciona com domínios .br?</summary><p>Sim, consultamos diretamente o RDAP do Registro.br, além dos registros internacionais.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="wrap">
+      <p>Vigia de Domínios (nome provisório) · pré-lançamento · <a href="privacidade.html">Política de privacidade</a></p>
+      <p class="nota">Nenhum resultado é garantido; o diagnóstico usa dados públicos e é apenas informativo.</p>
+    </div>
+  </footer>
+</body>
+</html>
